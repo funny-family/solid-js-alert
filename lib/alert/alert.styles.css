@@ -1,0 +1,10 @@
+.solid-js-alert {
+  border: none;
+  padding: 0;
+  width: 400px;
+  height: 200px;
+}
+
+.solid-js-alert::backdrop {
+  background-color: hsla(0, 0%, 0%, 0.5);
+}
