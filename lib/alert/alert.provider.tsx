@@ -11,9 +11,10 @@ type AlertProviderComponent = Component<{
 }>;
 
 export const AlertProvider: AlertProviderComponent = (props) => {
-  const activateMobileWhen = () =>
-    props.activateMobileWhen ||
-    window.matchMedia('(any-pointer:coarse)').matches;
+  const activateMobileWhen = (
+    (matchMedia: typeof window.matchMedia) => () =>
+      props.activateMobileWhen || matchMedia('(any-pointer:coarse)').matches
+  )(window.matchMedia);
 
   // TODO: remove latter (for debugging prepense)
   if (DEV != null) {
